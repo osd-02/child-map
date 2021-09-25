@@ -1,4 +1,6 @@
 import Vuex from 'vuex';
+import createPersistedState from 'vuex-persistedstate'
+
 
 export const state= () => ({
   coordinates: [
@@ -12,8 +14,8 @@ export const mutations = {
   insert(state, obj) {
     state.coordinates.unshift({
       coordinate: obj.coordinate,
-      url: obj.url,
       num: obj.num,
+      url: obj.url,
       store: obj.store
     })
     console.log(state.coordinates)

@@ -14,7 +14,8 @@
     "mapbox-gl": "^2.4.1",
     "nuxt": "^2.15.7",
     "vue-mapbox": "^0.4.1",
-    "vue-mapbox-geocoder": "^0.2.0"
+    "vue-mapbox-geocoder": "^0.2.0",
+    "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^4.2.0",

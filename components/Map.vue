@@ -1,6 +1,7 @@
 <template>
-  <div class="h-screen w-screen">
-    <div class="w-5/6 h-4/6 m-auto">
+  <div class="min-h-screen h-full w-screen bg-green-50">
+    <v-sheet class="h-screen w-screen bg-green-50">
+    <div class="w-5/6 h-5/6 m-auto shadow-xl">
       <MglMap
         :accessToken="accessToken"
         :mapStyle="mapStyle"
@@ -9,6 +10,7 @@
       >
         <MglGeocoderControl
           :accessToken="accessToken"
+          @results="handleSearch"
         />
         <MglGeolocateControl position="bottom-right" />
         <MglMarker
@@ -44,7 +46,8 @@
         </MglMarker>
       </MglMap>
     </div>
-    <Store />
+    </v-sheet>
+    <Store :send-coordinate="this.sendCoordinate" />
   </div>
 </template>
 
@@ -59,11 +62,23 @@ export default {
       mapStyle: "mapbox://styles/ponyao/cktznbqp322fe17pcoozkalaj",
       defaultCoordinates: [139.540667, 35.650614],
       zoom: 7,
-      defaultInput: "mapbox"
+      defaultInput: "mapbox",
+      sendCoordinate: null
     };
   },
   computed: {
     ...mapState(["coordinates"])
+  },
+  methods: {
+    handleSearch(event) {
+      if (event.features[0].center !== undefined || null) {
+        const lng = event.features[0].center[0]
+        const lat = event.features[0].center[1]
+        console.log(lng)
+        console.log(lat)
+        this.sendCoordinate = [lng, lat];
+      }
+    }
   }
 };
 </script>
