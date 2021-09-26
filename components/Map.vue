@@ -77,6 +77,8 @@ export default {
         console.log(lng)
         console.log(lat)
         this.sendCoordinate = [lng, lat];
+      } else {
+        pass
       }
     }
   }

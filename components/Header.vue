@@ -5,14 +5,11 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
+      <v-btn icon to="/">
         <v-icon>mdi-map-search-outline</v-icon>
       </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-shop-plus-outline</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-file-outline</v-icon>
+      <v-btn icon to="/store">
+        <v-icon>mdi-cog-transfer-outline</v-icon>
       </v-btn>
     </v-toolbar>
   </v-card>
